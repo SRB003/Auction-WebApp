@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="Auction.css">
+  
+    <title>Auction Web Page</title>
+    
+</head>
+<body>
+ 
+  <header>
+    <h1>Auction Web App</h1>
+    <p>Bid on your favorite items and win them at the best price!</p>
+    <a href="index.html" class="btn">Logout</a>
+  
+
+  </header>
+  <div class="container">
+    <div class="auctions">
+      <div class="auction">
+        <h2>Auction 1</h2>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/2023-chevrolet-corvette-z06-002-1635950091.jpg" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$100.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 2</h2>
+        <img src="https://hips.hearstapps.com/hmg-prod/images/2023-mclaren-artura-101-1655218102.jpg?crop=1.00xw:0.847xh;0,0.153xh&resize=1200:*" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+      </div>
+      <div class="auction">
+        <h2>Auction 3</h2>
+        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mclaren-automotive-15000th-car-570s-spider-01-1527528817.jpg?crop=1xw:1xh;center,top&resize=1200:*" alt="Auction Item">
+        <p>Current bid: <span class="current-bid">$200.00</span></p>
+        <button class="bid-btn">Bid</button>
+        </div>
+        <div class="auction">
+          <h2>Auction 3</h2>
+          <img src="https://collectingcars.imgix.net/002828/570S-34.jpg?w=1263&fit=fillmax&crop=edges&auto=format,compress&cs=srgb&q=85" alt="Auction Item">
+          <p>Current bid: <span class="current-bid">$200.00</span></p>
+          <button class="bid-btn">Bid</button>
+          </div>
+          <div class="auction">
+            <h2>Auction 3</h2>
+            <img src="https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/51/2016-mclaren-570s-top-inline-photo-658460-s-original.jpg" alt="Auction Item">
+            <p>Current bid: <span class="current-bid">$200.00</span></p>
+            <button class="bid-btn">Bid</button>
+            </div>
+            <div class="auction">
+              <h2>Auction 3</h2>
+              <img src="https://i.ebayimg.com/images/g/8TYAAOSwhjxhbf2G/s-l1600.jpg" alt="Auction Item">
+              <p>Current bid: <span class="current-bid">$200.00</span></p>
+              <button class="bid-btn">Bid</button>
+              </div>
+
+    </body>   
+<script>
+  const auctions = document.querySelectorAll('.auction');
+
+  auctions.forEach(auction => {
+    const bidButtons = auction.querySelectorAll('.bid-btn');
+    const maxBidAmount = 1000; 
+  
+    bidButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const currentBidText = button.parentNode.querySelector('.current-bid');
+        const currentBid = parseFloat(currentBidText.textContent.replace('$', ''));
+  
+        if (currentBid >= maxBidAmount) {
+         alert("Bid is over.The car is yours")
+          button.disabled = true;
+          return;
+        }
+  
+        const newBid = currentBid + 10;
+        currentBidText.textContent = '$' + newBid.toFixed(2);
+      });
+    });
+  });
+  
+
+</script>
